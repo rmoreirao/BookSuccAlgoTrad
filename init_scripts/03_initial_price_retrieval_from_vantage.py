@@ -1,6 +1,5 @@
 from __future__ import print_function
 
-from Domain.DailyPrice import DailyPrice
 from quote_fetcher import quote_fetcher_alpha_vantage
 import datetime
 import warnings
@@ -59,9 +58,7 @@ def insert_daily_data_into_db(data_vendor_id, symbol_id, quotes):
         cur.executemany(final_str, daily_data)
 
 if __name__ == "__main__":
-    # This ignores the warnings regarding Data Truncation
-    # from the Yahoo precision to Decimal(19,4) datatypes
-    warnings.filterwarnings('ignore')
+
     # Loop over the tickers and insert the daily historical
     # data into the database
     tickers = obtain_list_of_db_tickers_not_loaded()

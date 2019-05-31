@@ -6,7 +6,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-from quote_fetcher.Quote import Quote
+class Quote:
+    price_date: datetime
+    open_price: float
+    high_price: float
+    low_price: float
+    close_price: float
+    adj_close_price: float
+    volume: float
 
 COL_DATE = 'date'
 COL_OPEN = '1. open'
@@ -43,7 +50,8 @@ def get_historical_daily_quotes_array(symbol:str):
 
 def test_get_historical_daily_quotes():
     symbol = 'AAPL'
-    get_historical_daily_quotes_array(symbol)
+    quotes = get_historical_daily_quotes_array(symbol)
+    print(quotes)
 
 if __name__ == "__main__":
     test_get_historical_daily_quotes()
